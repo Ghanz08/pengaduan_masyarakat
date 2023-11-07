@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/masyarakat', 'Masyarakat::index');
+$routes->get('/masyarakat/form', 'Masyarakat::form');

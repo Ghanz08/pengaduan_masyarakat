@@ -14,5 +14,10 @@ class Masyarakat extends BaseController
     {
         return view('/masyarakat/Home');
     }
+
+    public function form()
+    {
+        return view('/masyarakat/Form');
+    }
     
 }

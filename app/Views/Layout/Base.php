@@ -32,7 +32,7 @@
             <a class="nav-link link-light" href="javascript:void(0)">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="javascript:void(0)">Daftar</a>
+            <a class="nav-link link-light" href="/">Login</a>
           </li>
         </ul>
       </div>

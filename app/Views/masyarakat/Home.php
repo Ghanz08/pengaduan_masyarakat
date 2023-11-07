@@ -17,15 +17,15 @@
         </div>
       </div>
 
-      <button class="btn btn-md text-light" type="button"
-        style="background: #C10000; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">Laporkan!</button>
+      <a class="btn btn-md text-light" type="button"
+        style="background: #C10000; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" href="/masyarakat/form">Laporkan!</a>
     </div>
   </div>
   <div>
     <div class="container">
       <div class="row">
         <div class="col">
-          <a style="text-decoration: none;" href="">
+          <a style="text-decoration: none;" href="/masyarakat/form">
             <div class="card" style="width: 18rem;">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -55,7 +55,7 @@
           </a>
         </div>
         <div class="col">
-          <a style="text-decoration: none;" href="">
+          <a style="text-decoration: none;" href="/masyarakat/form">
             <div class="card" style="width: 18rem;">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
