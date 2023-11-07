@@ -25,11 +25,9 @@
           <li class="nav-item">
             <a class="nav-link link-light" href="/masyarakat">Home</a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link link-light" href="javascript:void(0)">Panduan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="javascript:void(0)">Tentang</a>
+            <a class="nav-link link-light" href="/masyarakat/about_us">Tentang</a>
           </li>
           <li class="nav-item">
             <a class="nav-link link-light" href="/">Login</a>

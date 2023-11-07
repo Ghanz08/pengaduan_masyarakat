@@ -40,7 +40,7 @@
           </a>
         </div>
         <div class="col">
-          <a style="text-decoration: none;" href="">
+          <a style="text-decoration: none;" href="/masyarakat/laporan_anda">
             <div class="card" style="width: 18rem;">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
