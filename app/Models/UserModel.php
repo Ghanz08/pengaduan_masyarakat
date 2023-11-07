@@ -6,16 +6,16 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table            = 'user';
+    protected $table            = 'masyarakat';
     protected $primaryKey       = 'id_masyarakat';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["nik", "password"];  
+    protected $allowedFields    = ["nik", "username", "password"];  
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

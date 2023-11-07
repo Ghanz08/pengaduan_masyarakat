@@ -34,11 +34,40 @@ class Validation extends BaseConfig
      * @var array<string, string>
      */
     public array $templates = [
-        'list'   => 'CodeIgniter\Validation\Views\list',
+        'list' => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    public $register = [
+        'nik' => 'numeric|is_unique[masyarakat.nik]',
+        'username' => 'alpha_numeric|is_unique[masyarakat.username]',
+        'telepon' => 'numeric|is_unique[masyarakat.telepon]',
+        'password' => 'min_length[8]|alpha_numeric_punct',
+        'confirm' => 'matches[password]'
+    ];
+
+    public $register_errors = [
+        'nik' => [
+            'numeric' => 'NIK hanya boleh mengandung angka',
+            'is_unique' => 'NIK sudah dipakai'
+        ],
+        'username' => [
+            'alpha_numeric' => 'Username hanya boleh mengandung huruf dan angka',
+            'is_unique' => 'Username sudah dipakai'
+        ],
+        'telepon' => [
+            'numeric' => 'Nomor Telepon hanya boleh mengandung angka',
+            'is_unique' => 'Nomor Telepon sudah dipakai'
+        ],
+        'password' => [
+            'min_length' => 'Password harus terdiri dari 8 kata',
+            'alpha_numeric_punct' => 'Password hanya boleh mengandung angka, huruf, dan karakter yang valid'
+        ],
+        'confirm' => [
+            'matches' => 'Konfirmasi password tidak cocok'
+        ]
+    ];
 }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Login</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+
+
+</head>
+
+<body>
+  <!--Main Navigation-->
+  <header>
+    <style>
+      #intro {
+        background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
+        height: 100vh;
+      }
+
+
+
+      .navbar .nav-link {
+        color: #fff !important;
+      }
+    </style>
+
+    <!-- Navbar -->
+
+
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-2-strong">
+      <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-md-8">
+              <?php
+              $session = session();
+              $login = $session->getFlashdata('login');
+              $username = $session->getFlashdata('username');
+              $nik = $session->getFlashdata('nik');
+              $password = $session->getFlashdata('password');
+              ?>
+
+
+              <?php if ($username) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <?php echo $username ?>
+                </div>
+              <?php } ?>
+
+              <?php if ($nik) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <?php echo $nik ?>
+                </div>
+              <?php } ?>
+
+              <?php if ($password) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <?php echo $password ?>
+                </div>
+              <?php } ?>
+
+              <?php if ($login) { ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <?php echo $login ?>
+                </div>
+              <?php } ?>
+              <form class="bg-white rounded shadow-5-strong p-5" method="post" action="/auth/valid_login">
+                <h3 class="text-center" style="margin-top: -6%;">Login</h3>
+                <!-- Email input -->
+                <div class="input-group mb-3 mt-4">
+                  <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1">
+                </div>
+
+                <!-- Password input -->
+                <div class="input-group mb-4">
+                  <input type="password" class="form-control" name="password" placeholder="Password" aria-label="password"
+                    aria-describedby="basic-addon1">
+                </div>
+
+                <div class="d-grid gap-2">
+                  <button class="btn btn-danger btn-block" type="submit">Sign in</button>
+                </div>
+                <div class="mt-4" style="margin-bottom: -10%;">
+                  <p class="text-center">Belum ada akun? <a href="/register">Buat akun!</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+
+</body>
+
+
+</html>
