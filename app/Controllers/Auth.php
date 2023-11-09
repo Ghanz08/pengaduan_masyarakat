@@ -47,7 +47,7 @@ class Auth extends BaseController
         //jika ada error kembalikan ke halaman register
         if ($errors) {
             session()->setFlashdata('error', $errors);
-            return redirect()->to('/auth/register');
+            return redirect()->to('/register');
         }
 
         //jika tdk ada error 
@@ -62,6 +62,7 @@ class Auth extends BaseController
             'username' => $data['username'],
             'telepon' => $data['telepon'],
             'password' => $password,
+            'date_created' => date('Y-m-d'),
         ]);
 
         //arahkan ke halaman login
@@ -83,7 +84,7 @@ class Auth extends BaseController
             // Check the password
             if ($admin['password'] != md5($data['password'])) {
                 session()->setFlashdata('password', 'Wrong Password');
-                return redirect()->to('/auth/login');
+                return redirect()->to('/login');
             } else {
                 // If the password is correct, check the 'role'
                 if ($admin['role'] == 'admin') {
@@ -108,7 +109,7 @@ class Auth extends BaseController
             // Check if a user is found in the 'user' table
             if ($user['password'] != md5($data['password'])) {
                 session()->setFlashdata('password', 'Wrong Password');
-                return redirect()->to('/auth/login');
+                return redirect()->to('/login');
             } else {
                 $sessLogin = [
                     'isLogin' => true,
@@ -120,7 +121,7 @@ class Auth extends BaseController
         } else {
             // If neither 'admin' nor 'user' is found, display an error message
             session()->setFlashdata('username', 'NIK not found');
-            return redirect()->to('/auth/login');
+            return redirect()->to('/login');
         }
     }
 

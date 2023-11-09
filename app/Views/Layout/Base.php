@@ -30,7 +30,7 @@
             <a class="nav-link link-light" href="/masyarakat/about_us">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="/">Login</a>
+            <a class="nav-link link-light" href="/login">Login</a>
           </li>
         </ul>
       </div>
