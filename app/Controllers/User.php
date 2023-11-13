@@ -13,10 +13,10 @@ class User extends BaseController
     {
         //cek apakah ada session bernama isLogin
         if(!$this->session->has('isLogin')){
-            return redirect()->to('/auth/login');
+            return redirect()->to('/login');
         }
 
-        return view('user/index');
+        return view('masyarakat/home');
     }
     
 }

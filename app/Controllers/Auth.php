@@ -115,9 +115,10 @@ class Auth extends BaseController
                 $sessLogin = [
                     'isLogin' => true,
                     'nik' => $user['nik'],
+                    'username' => $user['username'],
                 ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/user');
+                return redirect()->to('/masyarakat');
             }
         } else {
             // If neither 'admin' nor 'user' is found, display an error message

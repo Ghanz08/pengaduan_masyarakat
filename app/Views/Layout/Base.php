@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+<?php $this->session = session(); 
+$session = session()
+?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
@@ -12,6 +15,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="https://kit.fontawesome.com/978438a1fc.js" crossorigin="anonymous"></script>
   <!-- Custom CSS  -->
   <link rel="stylesheet" href="frontend/css/style.css">
   <nav class="navbar navbar-expand-sm navbar-danger bg-danger">
@@ -25,16 +29,31 @@
           <li class="nav-item">
             <a class="nav-link link-light" href="/masyarakat">Home</a>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link link-light" href="/masyarakat/about_us">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="/login">Login</a>
-          </li>
-        </ul>
+            
+            <?php if (!$this->session->has('nik')) { ?>
+              <a class="nav-link link-light" href="/login">Login</a>
+            <?php } else { ?>
+              <div class="dropdown">
+                <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false" style="color: #ffffff;">
+                  <i class="fa-solid fa-user" style="color: #ffffff;"></i>   <?= $session->username ?>
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/masyarakat/laporan_anda">History</a></li>
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <?php } ?>
   </nav>
 </head>
 
