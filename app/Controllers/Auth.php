@@ -24,6 +24,7 @@ class Auth extends BaseController
     public function login()
     {
         //menampilkan halaman login
+        
         return view('auth/login');
     }
 
@@ -131,7 +132,7 @@ class Auth extends BaseController
         //hancurkan session 
         //balikan ke halaman login
         $this->session->destroy();
-        return redirect()->to('/auth/login');
+        return redirect()->to('/login');
     }
 
 }

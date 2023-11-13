@@ -40,4 +40,10 @@ class Masyarakat extends BaseController
         return view('/masyarakat/Complete');
     }
     
+    public function detail()
+    {
+        return view('/masyarakat/Laporan_details');
+    }
+        
+    
 }
