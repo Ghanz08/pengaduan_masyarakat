@@ -82,7 +82,7 @@
                 <h3 class="text-center" style="margin-top: -6%;">Login</h3>
                 <!-- Email input -->
                 <div class="input-group mb-3 mt-4">
-                  <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username"
+                  <input type="text" class="form-control" name="username" placeholder="NIK" aria-label="NIK"
                     aria-describedby="basic-addon1">
                 </div>
 

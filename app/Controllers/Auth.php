@@ -113,9 +113,9 @@ class Auth extends BaseController
                 return redirect()->to('/login');
             } else {
                 $sessLogin = [
-                    'isLogin' => true,
+                    'userisLogin' => true,
                     'nik' => $user['nik'],
-                    'username' => $user['username'],
+                    'nama' => $user['nama'],
                 ];
                 $this->session->set($sessLogin);
                 return redirect()->to('/masyarakat');

@@ -17,10 +17,10 @@ class Admin extends BaseController
             return redirect()->to('/auth/login');
         }
         
-        //cek role dari session
-        // if($this->session->get('role') != 1){
-        //     return redirect()->to('/user');
-        // }
+        // cek username jika user dari session
+        if($this->session->get('nik') != 1){
+            return redirect()->to('/user');
+        }
         
         return view('home/index');
         

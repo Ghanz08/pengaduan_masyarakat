@@ -13,6 +13,7 @@ class UserModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ["nik", "username", "telepon", "password", "date_created"];  
+    
 
     // Dates
     protected $useTimestamps = true;
