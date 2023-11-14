@@ -60,7 +60,9 @@ class Masyarakat extends BaseController
 
     public function detail()
     {
-        return view('/masyarakat/Laporan_details');
+        $data['pengaduan'] = $this->pengaduanModel->findAll();
+
+        return view('/masyarakat/Laporan_details', $data);
     }
 
 

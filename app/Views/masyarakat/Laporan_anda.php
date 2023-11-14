@@ -33,21 +33,19 @@ $session = session()
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col" class="text-center">ID</th>
-                    <th scope="col" class="text-center">Judul</th>
-                    <th scope="col" class="text-center">Tanggal</th>
+                  <tr class="text-center">
+                    <th scope="col">ID</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Tanggal</th>
                     <th scope="col" class="text-center">Isi laporan</th>
-                    <th scope="col" class="text-center">Lokasi Kejadian</th>
-                    <th scope="col" class="text-center">Gambar</th>
                     <th scope="col" class="text-center">Status</th>
                     <th scope="col" class="text-center">Aksi cepat</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($pengaduan as $report): ?>
-                    <tr>
-                      <td scope="col" class="text-center">
+                    <tr class="text-center">
+                      <td>
                         <?= $report['id_pengaduan']; ?>
                       </td>
                       <td scope="col" class="text-center">
@@ -56,18 +54,8 @@ $session = session()
                       <td scope="col" class="text-center">
                         <?= $report['tanggal_pengaduan']; ?>
                       </td>
-                      <td scope="col" class="text-center">
-                        <?= $report['isi_laporan']; ?>
-                      </td>
-                      <td scope="col" class="text-center">
-                        <?= $report['lokasi_kejadian']; ?>
-                      </td>
-                      <td scope="col" class="text-center">
-                        <?php if ($report['foto']): ?>
-                          <img src="<?= base_url('uploads/' . $report['foto']); ?>" alt="Report Image" width="100">
-                        <?php else: ?>
-                          No Image
-                        <?php endif; ?>
+                      <td>
+                        <a href="/masyarakat/detail" class="btn btn-warning">Detail laporan</a>
                       </td>
                       <td scope="col" class="text-center">
                         <?= $report['status']; ?>

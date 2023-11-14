@@ -18,19 +18,24 @@
                   "></div>
                         </div>
                         <div class="card-body">
-                            <div>
-                                <img style="width: 180px; height: 180px; flex-shrink: 0;" src="/kodingan/frontend/img/Group 1.png" alt="">
-                            </div>
+                        <?php foreach ($pengaduan as $report): ?>
+                            <?php if ($report['foto']): ?>
+                                <div class="text-center">
+                                    <img src="<?= base_url('uploads/' . $report['foto']); ?>" alt="Report Image" width="80%">
+                                </div>
+                          
+                        <?php else: ?>
+                          No Image
+                        <?php endif; ?>
                             <div style="width: 573px; background: #000; height: 1px; margin-top: 25px;">
 
                             </div>
                             <div class="pt-3">
                                 <div class="row">
                                     <div class="col-3">
-                                        <p>Nama Laporan</p>
+                                        <p>Judul Laporan</p>
                                         <p>Tanggal laporan</p>
                                         <p>Lokasi</p>
-                                        <p>Kategori</p>
                                         <p>Isi laporan</p>
                                     </div>
                                     <div class="col-1" style="margin-left: -20px;">
@@ -38,19 +43,22 @@
                                         <p>:</p>
                                         <p>:</p>
                                         <p>:</p>
-                                        <p>:</p>
+                                      
                                     </div>
+                                    
                                     <div class="col" style="margin-left: -30px;">
-                                        <p>Kerusuhan tahun 98</p>
-                                        <p>jakarta</p>
-                                        <p>Huru hara</p>
-                                        <p>Kerusuhan</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorem voluptatibus ea quo eos. Expedita modi beatae placeat, et rerum incidunt molestias doloremque nam nostrum ea debitis obcaecati iusto delectus!</p>
+                                        <p><?= $report['judul_pengaduan']; ?></p>
+                                        <p> <?= $report['tanggal_pengaduan']; ?></p>
+                                        <p> <?= $report['lokasi_kejadian']; ?></p>
+                                        <p><?= $report['isi_laporan']; ?></p>
                                     </div>
                                 </div>
-
+                                <div class="text-end">
+                                     <a href="/masyarakat/laporan_anda" class="btn btn-danger">Kembali</a>
+                                </div>
+                               
                             </div>
-
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -70,17 +78,8 @@
                                 <h2>Tanggapan</h2>
                             </div>
                             <div>
-                                <div class="mb-3" style="width: 602px; height: 68px; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
-                                    <p class="pt-2" style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, numquam nobis. Quos solutat!</p>
-                                </div>
-                                <div class="mb-3" style="width: 602px; height: 68px; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
-                                    <p class="pt-2" style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, numquam nobis. Quos solutat!</p>
-                                </div>
-                                <div class="mb-3" style="width: 602px; height: 68px; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
-                                    <p class="pt-2" style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, numquam nobis. Quos solutat!</p>
-                                </div>
-                                <div class="mb-3" style="width: 602px; height: 68px; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
-                                    <p class="pt-2" style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, numquam nobis. Quos solutat!</p>
+                                <div class="mb-3" style="width: 100%; height: 100%; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
+                                    <p class="pt-1 pb-1" style="margin-left: 5px; margin-right: 5px;">Tunggu sampai laporan anda diterima, maka admin akan menanggapi laporan anda</p>
                                 </div>
                             </div>
                             

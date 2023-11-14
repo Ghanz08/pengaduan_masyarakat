@@ -23,6 +23,7 @@ $routes->get('/logout', 'Auth::logout');
 $routes->post('/auth/valid_register', 'Auth::valid_register');
 $routes->post('/auth/valid_login', 'Auth::valid_login');
 
+
 $routes->group('pengaduan', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Pengaduan::index'); // Display list of reports
     $routes->get('create', 'Pengaduan::create'); // Display form to create a report
@@ -32,5 +33,8 @@ $routes->group('pengaduan', ['namespace' => 'App\Controllers'], function ($route
     $routes->get('delete/(:num)', 'Pengaduan::delete/$1'); // Delete a report
 });
 
+// testing halaman admin.
+$routes->get('/admin/dashboard', 'Admin::tesadmin');
+$routes->get('/admin/pengaduan', 'Admin::testabel');
 //
 

@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\PengaduanModel;
 
 class Admin extends BaseController
 {
     
     public function __construct()
+    
     {
+        // Load the PengaduanModel
+        $this->PengaduanModel = new PengaduanModel();
         $this->session = session();
     }
     
@@ -22,8 +26,18 @@ class Admin extends BaseController
             return redirect()->to('/user');
         }
         
-        return view('home/index');
+        
         
     }
-    
+
+    public function tesadmin()
+    {
+        return view('admin/Dashboard');
+    }
+
+    public function testabel()
+    {
+        $data['pengaduan'] = $this->PengaduanModel->findAll();
+        return view('admin/Tabel_pengaduan', $data);
+    }
 }
