@@ -25,7 +25,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <a style="text-decoration: none;" href="/masyarakat/form">
+          <a style="text-decoration: none;" href="/masyarakat/pengaduan">
             <div class="card" style="width: 18rem;">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -55,7 +55,7 @@
           </a>
         </div>
         <div class="col">
-          <a style="text-decoration: none;" href="/masyarakat/form">
+          <a style="text-decoration: none;" href="/masyarakat/pengaduan">
             <div class="card" style="width: 18rem;">
               <div class="card" style="width: 18rem;">
                 <div class="card-body">

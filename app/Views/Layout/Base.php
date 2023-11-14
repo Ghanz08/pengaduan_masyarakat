@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-<?php $this->session = session(); 
+<?php 
+$this->session = session(); 
 $session = session()
 ?>
   <meta charset="UTF-8">
@@ -41,7 +42,7 @@ $session = session()
               <div class="dropdown">
                 <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false" style="color: #ffffff;">
-                  <i class="fa-solid fa-user" style="color: #ffffff;"></i>   <?= $session->username ?>
+                  <i class="fa-solid fa-user mx-2" style="color: #ffffff;"></i>   <?= $session->username ?>
                 </a>
 
                 <ul class="dropdown-menu">
