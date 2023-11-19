@@ -18,7 +18,7 @@
       </div>
 
       <a class="btn btn-md text-light" type="button"
-        style="background: #C10000; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" href="/masyarakat/form">Laporkan!</a>
+        style="background: #C10000; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" href="/masyarakat/pengaduan">Laporkan!</a>
     </div>
   </div>
   <div>

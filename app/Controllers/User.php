@@ -12,7 +12,7 @@ class User extends BaseController
     public function index()
     {
         //cek apakah ada session bernama isLogin
-        if(!$this->session->has('isLogin')){
+        if(!$this->session->has('userisLogin')){
             return redirect()->to('/login');
         }
 

@@ -87,20 +87,20 @@ class Auth extends BaseController
                 session()->setFlashdata('password', 'Wrong Password');
                 return redirect()->to('/login');
             } else {
-                // If the password is correct, check the 'role'
-                if ($admin['role'] == 'admin') {
+                // If the password is correct, check the 'level'
+                if ($admin['level'] == 'admin') {
                     $sessLogin = [
                         'isLogin' => true,
                         'username' => $admin['username'],
-                        'role' => $admin['role']
+                        'level' => $admin['level']
                     ];
                     $this->session->set($sessLogin);
-                    return redirect()->to('/admin');
+                    return redirect()->to('admin/dashboard');
                 } else {
                     $sessLogin = [
                         'isLogin' => true,
                         'username' => $admin['username'],
-                        'role' => $admin['role']
+                        'level' => $admin['level']
                     ];
                     $this->session->set($sessLogin);
                     return redirect()->to('/petugas');
@@ -133,7 +133,7 @@ class Auth extends BaseController
         //hancurkan session 
         //balikan ke halaman login
         $this->session->destroy();
-        return redirect()->to('/login');
+        return redirect()->to('/masyarakat');
     }
 
 }

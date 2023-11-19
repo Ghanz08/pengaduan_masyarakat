@@ -10,7 +10,7 @@ class Admin extends BaseController
     
     {
         // Load the PengaduanModel
-        $this->PengaduanModel = new PengaduanModel();
+        $this->pengaduanModel = new PengaduanModel();
         $this->session = session();
     }
     
@@ -26,18 +26,20 @@ class Admin extends BaseController
             return redirect()->to('/user');
         }
         
-        
-        
     }
 
-    public function tesadmin()
+    public function dashboard()
     {
         return view('admin/Dashboard');
     }
 
-    public function testabel()
+    public function pengaduan()
     {
-        $data['pengaduan'] = $this->PengaduanModel->findAll();
+        // Fetch all reports from the pengaduan table
+        $data['pengaduan'] = $this->pengaduanModel->laporan_admin();
+        $data['diterima'] = $this->pengaduanModel->laporan_admin_diterima();
+        $data['diproses'] = $this->pengaduanModel->laporan_admin_diproses();
+        $data['selesai'] = $this->pengaduanModel->laporan_admin_selesai();
         return view('admin/Tabel_pengaduan', $data);
     }
 }

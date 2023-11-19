@@ -22,6 +22,10 @@ class Masyarakat extends BaseController
 
     public function form()
     {
+        //cek apakah ada session bernama isLogin
+        if(!$this->session->has('userisLogin')){
+            return redirect()->to('/login');
+        }
         return view('/masyarakat/Form');
     }
 
@@ -58,9 +62,9 @@ class Masyarakat extends BaseController
         return view('/masyarakat/Complete');
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $data['pengaduan'] = $this->pengaduanModel->findAll();
+        $data['pengaduan'] = $this->pengaduanModel->getReportById($id);
 
         return view('/masyarakat/Laporan_details', $data);
     }

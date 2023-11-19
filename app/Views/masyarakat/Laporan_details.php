@@ -18,10 +18,10 @@
                   "></div>
                         </div>
                         <div class="card-body">
-                        <?php foreach ($pengaduan as $report): ?>
-                            <?php if ($report['foto']): ?>
+                        <?php if ($pengaduan): ?>
+                            <?php if ($pengaduan['foto']): ?>
                                 <div class="text-center">
-                                    <img src="<?= base_url('uploads/' . $report['foto']); ?>" alt="Report Image" width="80%">
+                                    <img src="<?= base_url('uploads/' . $pengaduan['foto']); ?>" alt="Report Image" width="80%">
                                 </div>
                           
                         <?php else: ?>
@@ -47,10 +47,10 @@
                                     </div>
                                     
                                     <div class="col" style="margin-left: -30px;">
-                                        <p><?= $report['judul_pengaduan']; ?></p>
-                                        <p> <?= $report['tanggal_pengaduan']; ?></p>
-                                        <p> <?= $report['lokasi_kejadian']; ?></p>
-                                        <p><?= $report['isi_laporan']; ?></p>
+                                        <p><?= $pengaduan['judul_pengaduan']; ?></p>
+                                        <p> <?= $pengaduan['tanggal_pengaduan']; ?></p>
+                                        <p> <?= $pengaduan['lokasi_kejadian']; ?></p>
+                                        <p><?= $pengaduan['isi_laporan']; ?></p>
                                     </div>
                                 </div>
                                 <div class="text-end">
@@ -58,7 +58,7 @@
                                 </div>
                                
                             </div>
-                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -80,10 +80,9 @@
                             <div>
                                 <div class="mb-3" style="width: 100%; height: 100%; flex-shrink: 0; border-radius: 10px; background: #FFCA7B; ">
                                     <p class="pt-1 pb-1" style="margin-left: 5px; margin-right: 5px;">Tunggu sampai laporan anda diterima, maka admin akan menanggapi laporan anda</p>
+                                    <p class="pt-1 pb-1" style="margin-left: 5px; margin-right: 5px;">Tunggu sampai laporan anda diterima, </br>maka admin akan menanggapi laporan anda</p>
                                 </div>
                             </div>
-                            
-                            
                         </div>
                     </div>
                 </div>

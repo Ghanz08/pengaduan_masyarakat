@@ -13,7 +13,7 @@ class PengaduanModel extends Model
     public function laporan_anda()
     {
         return $this->select('*')
-                    ->where('status', 0 , 4)
+                    ->where('status', 1 , 5)
                     ->where('nik', session('nik'))
                     ->orderBy('id_pengaduan', 'desc')
                     ->findAll();
@@ -21,7 +21,7 @@ class PengaduanModel extends Model
     public function laporan_anda_diterima()
     {
         return $this->select('*')
-                    ->where('status', 1)
+                    ->where('status', 2)
                     ->where('nik', session('nik'))
                     ->orderBy('id_pengaduan', 'desc')
                     ->findAll();
@@ -29,7 +29,7 @@ class PengaduanModel extends Model
     public function laporan_anda_diproses()
     {
         return $this->select('*')
-                    ->where('status', 2)
+                    ->where('status', 3)
                     ->where('nik', session('nik'))
                     ->orderBy('id_pengaduan', 'desc')
                     ->findAll();
@@ -37,9 +37,53 @@ class PengaduanModel extends Model
     public function laporan_anda_selesai()
     {
         return $this->select('*')
-                    ->where('status', 3)
+                    ->where('status', 4)
                     ->where('nik', session('nik'))
                     ->orderBy('id_pengaduan', 'desc')
                     ->findAll();
+    }
+    public function laporan_admin()
+    {
+        return $this->select('*')
+                    ->whereIn('status', [1, 5])
+                    ->orderBy('id_pengaduan', 'desc')
+                    ->findAll();
+    }
+    public function laporan_admin_diterima()
+    {
+        return $this->select('*')
+                    ->where('status', 2)
+                    ->orderBy('id_pengaduan', 'desc')
+                    ->findAll();
+    }
+    public function laporan_admin_diproses()
+    {
+        return $this->select('*')
+                    ->where('status', 3)
+                    ->orderBy('id_pengaduan', 'desc')
+                    ->findAll();
+    }
+    public function laporan_admin_selesai()
+    {
+        return $this->select('*')
+                    ->where('status', 4)
+                    ->orderBy('id_pengaduan', 'desc')
+                    ->findAll();
+    }
+
+    public function getReportById($id)
+    {
+        return $this->find($id);
+    }
+
+    public function update_pengaduan($id, $data)
+    {
+        // Assuming $id is the primary key of the record to be updated
+        $this->set($data);
+        $this->where('id_pengaduan', $id);
+        $this->update();
+
+        // Alternatively, you can use the following one-liner
+        // $this->update($id, $data);
     }
 }

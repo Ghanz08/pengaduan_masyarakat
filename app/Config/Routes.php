@@ -13,7 +13,7 @@ $routes->get('/masyarakat/laporan_anda', 'Masyarakat::laporan_anda');
 $routes->get('/masyarakat/about_us', 'Masyarakat::About_us');
 $routes->get('/masyarakat/profil', 'Masyarakat::Profile');
 $routes->get('/masyarakat/complete', 'Masyarakat::Complete');
-$routes->get('/masyarakat/detail', 'Masyarakat::detail');
+$routes->get('/masyarakat/detail/(:num)', 'Masyarakat::detail/$1');
 
 // $routes->get('/masyarakat', 'User::index');
 
@@ -31,10 +31,17 @@ $routes->group('pengaduan', ['namespace' => 'App\Controllers'], function ($route
     $routes->get('edit/(:num)', 'Pengaduan::edit/$1'); // Display form to edit a report
     $routes->post('update/(:num)', 'Pengaduan::update/$1'); // Update a report
     $routes->get('delete/(:num)', 'Pengaduan::delete/$1'); // Delete a report
+    $routes->get('diterima/(:num)', 'Pengaduan::diterima/$1'); // Update role to 1
+    $routes->get('ditolak/(:num)', 'Pengaduan::ditolak/$1'); // Update role to 4
 });
 
 // testing halaman admin.
-$routes->get('/admin/dashboard', 'Admin::tesadmin');
-$routes->get('/admin/pengaduan', 'Admin::testabel');
+$routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('dashboard', 'Admin::dashboard');
+    $routes->get('pengaduan', 'Admin::pengaduan');
+    $routes->get('diterima/(:num)', 'Pengaduan::diterima/$1'); // Update role to 1
+    $routes->get('ditolak/(:num)', 'Pengaduan::ditolak/$1'); // Update role to 4
+    // Add more admin routes as needed
+});
 //
 

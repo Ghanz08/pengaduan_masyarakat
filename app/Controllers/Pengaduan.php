@@ -9,6 +9,7 @@ class Pengaduan extends BaseController
     public function __construct()
     {
         $this->pengaduanModel = new PengaduanModel();
+        $this->session = session();
     }
 
     public function index()
@@ -30,10 +31,12 @@ class Pengaduan extends BaseController
         $data = [
             'judul_pengaduan' => $this->request->getPost('judul_pengaduan'),
             'tanggal_pengaduan' => $this->request->getPost('tanggal_pengaduan'),
-            'nik' => $this->request->getPost('nik'), // You may fetch this from the session
+            'nik' => $this->request->getPost('nik'),
+            // You may fetch this from the session
             'isi_laporan' => $this->request->getPost('isi_laporan'),
             'lokasi_kejadian' => $this->request->getPost('lokasi_kejadian'),
-            'status' => 0, // Assuming status 0 is the default status
+            'status' => 1,
+            // Assuming status 0 is the default status
         ];
 
         // Upload image
@@ -65,7 +68,8 @@ class Pengaduan extends BaseController
         $data = [
             'judul_pengaduan' => $this->request->getPost('judul_pengaduan'),
             'tanggal_pengaduan' => $this->request->getPost('tanggal_pengaduan'),
-            'nik' => $this->request->getPost('nik'), // You may fetch this from the session
+            'nik' => $this->request->getPost('nik'),
+            // You may fetch this from the session
             'isi_laporan' => $this->request->getPost('isi_laporan'),
             'lokasi_kejadian' => $this->request->getPost('lokasi_kejadian'),
             'status' => $this->request->getPost('status'),
@@ -104,4 +108,66 @@ class Pengaduan extends BaseController
         return redirect()->to('/pengaduan');
     }
 
+    public function diterima($id)
+    {
+        $data = [
+            'id' => $id,
+            'status' => '2',
+        ];
+        $this->pengaduanModel->update_pengaduan($id, $data);
+
+
+        // Flash data in CodeIgniter 4
+        $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
+        return redirect()->to('admin/pengaduan');
+    }
+
+    // public function diproses($id)
+    // {
+    //     $this->validation->setRules([
+    //         'no_resi' => 'required',
+    //     ]);
+
+    //     if (!$this->validation->withRequest($this->request)->run()) {
+    //         // Validation failed, handle accordingly
+    //         return $this->index();
+    //     }
+
+    //     $data = [
+    //         'id' => $id,
+    //         'no_resi' => $this->request->getPost('no_resi'),
+    //         'status' => '3',
+    //     ];
+    //     $this->pengaduanModel->update_pengaduan($data);
+
+    //     // Flash data in CodeIgniter 4
+    //     $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
+    //     return redirect()->to('dashboard/pesanan_masuk');
+    // }
+
+    public function selesai($id)
+    {
+        $data = [
+            'id' => $id,
+            'status' => '4',
+        ];
+        $this->pengaduanModel->update_pengaduan($id, $data);
+
+        // Flash data in CodeIgniter 4
+        $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
+        return redirect()->to('dashboard/pesanan_masuk');
+    }
+
+    public function ditolak($id)
+    {
+        $data = [
+            'id' => $id,
+            'status' => '5',
+        ];
+        $this->pengaduanModel->update_pengaduan($id, $data);
+
+        // Flash data in CodeIgniter 4
+        $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
+        return redirect()->to('admin/pengaduan');
+    }
 }

@@ -55,10 +55,10 @@ $session = session()
                         <?= $report['tanggal_pengaduan']; ?>
                       </td>
                       <td>
-                        <a href="/masyarakat/detail" class="btn btn-warning">Detail laporan</a>
+                        <a href="<?= site_url("/masyarakat/detail/{$report['id_pengaduan']}"); ?>" class="btn btn-warning">Detail laporan</a>
                       </td>
                       <td scope="col" class="text-center">
-                        <?= $report['status']; ?>
+                        <?= $report['status']; ?><button type="button" class="btn btn-secondary" disabled>Menunggu</button>
                       </td>
                       <td scope="col" class="text-center">
                         <div class="text-center">

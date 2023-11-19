@@ -2,18 +2,26 @@
 <html dir="ltr" lang="en">
 
 <head>
-<?php 
-$this->session = session(); 
-$session = session()
-?>
+    <?php
+    $this->session = session();
+    $session = session()
+        ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Monsterlite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description" content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Monsterlite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Monster Lite Template by WrapPixel</title>
+    <title>Admin</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
@@ -37,7 +45,8 @@ $session = session()
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -69,7 +78,8 @@ $session = session()
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -86,7 +96,8 @@ $session = session()
 
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search ps-3">
-                                <input type="text" class="form-control" placeholder="Search for."> <a class="srh-btn"><i class="ti-search"></i></a>
+                                <input type="text" class="form-control" placeholder="Search for."> <a class="srh-btn"><i
+                                        class="ti-search"></i></a>
                             </form>
                         </li>
                     </ul>
@@ -98,12 +109,24 @@ $session = session()
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown-center nav-item">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/assets/images/users/1.jpg" alt="user" class="profile-pic me-2">
+                                <?= $session->username ?>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Action two</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Markarn Doe
                             </a>
-                            <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
@@ -122,46 +145,51 @@ $session = session()
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/dashboard" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/dashboard"
+                                aria-expanded="false">
                                 <i class="me-3 far fa-clock fa-fw" aria-hidden="true"></i>
-                                    <span class="hide-menu">
-                                        Dashboard
-                                    </span>
-                        </a>
+                                <span class="hide-menu">
+                                    Dashboard
+                                </span>
+                            </a>
                         </li>
-                        <li class="sidebar-item"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html"
+                                aria-expanded="false">
                                 <i class="me-3 fa fa-user" aria-hidden="true"></i>
-                                    <span class="hide-menu">
-                                        Profile
-                                    </span>
-                                </a>
+                                <span class="hide-menu">
+                                    Profile
+                                </span>
+                            </a>
                         </li>
-                        <li class="sidebar-item">  
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/pengaduan" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/pengaduan"
+                                aria-expanded="false">
                                 <i class="me-3 fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">
                                     Pengaduan
                                 </span>
                             </a>
                         </li>
-                        <li class="sidebar-item">  
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html"
+                                aria-expanded="false">
                                 <i class="me-3 fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">
                                     Petugas
                                 </span>
                             </a>
                         </li>
-                        <li class="sidebar-item">  
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html"
+                                aria-expanded="false">
                                 <i class="me-3 fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">
                                     Masyarakat
                                 </span>
                             </a>
                         </li>
-                        
+
                     </ul>
 
                 </nav>
