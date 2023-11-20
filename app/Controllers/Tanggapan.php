@@ -4,10 +4,16 @@ namespace App\Controllers;
 
 use App\Models\TanggapanModel;
 use App\Models\PengaduanModel;
-use App\Models\PetugasModel;
+use App\Models\AdminModel;
 
 class Tanggapan extends BaseController
 {
+    public function __construct()
+    {
+        $this->pengaduanModel = new PengaduanModel();
+        $this->session = session();
+    }
+
     public function insertAndUpdate()
 {
     // Assuming you receive the necessary data through POST or any other method
