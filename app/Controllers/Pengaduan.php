@@ -72,7 +72,7 @@ class Pengaduan extends BaseController
             // You may fetch this from the session
             'isi_laporan' => $this->request->getPost('isi_laporan'),
             'lokasi_kejadian' => $this->request->getPost('lokasi_kejadian'),
-            'status' => $this->request->getPost('status'),
+            'status' => '1'
         ];
 
         // Upload image if a new one is provided

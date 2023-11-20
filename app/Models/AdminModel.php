@@ -37,4 +37,19 @@ class AdminModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    // In PetugasModel.php
+public function getPetugasId($username)
+{
+    // Assuming you want to get id_petugas based on the provided username
+    $petugas = $this->where('username', $username)->first();
+    
+    if ($petugas) {
+        return $petugas['id_petugas'];
+    } else {
+        // Handle the case where there is no petugas with the provided username
+        return null;
+    }
+}
+
 }

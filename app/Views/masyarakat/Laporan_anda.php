@@ -55,15 +55,25 @@ $session = session()
                         <?= $report['tanggal_pengaduan']; ?>
                       </td>
                       <td>
-                        <a href="<?= site_url("/masyarakat/detail/{$report['id_pengaduan']}"); ?>" class="btn btn-warning">Detail laporan</a>
+                        <a href="<?= site_url("/masyarakat/detail/{$report['id_pengaduan']}"); ?>"
+                          class="btn btn-warning">Detail laporan</a>
                       </td>
                       <td scope="col" class="text-center">
-                        <?= $report['status']; ?><button type="button" class="btn btn-secondary" disabled>Menunggu</button>
+                        <?php if ($report['status'] == 1): ?>
+                          <button type="button" class="btn btn-secondary" disabled>Menunggu</button>
+                        <?php endif; ?>
+                        <?php if ($report['status'] == 5): ?>
+                          <button type="button" class="btn btn-danger disabled">Ditolak</button>
+                        <?php endif; ?>
                       </td>
                       <td scope="col" class="text-center">
                         <div class="text-center">
-                            <a href="<?= site_url("pengaduan/edit/{$report['id_pengaduan']}"); ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?= site_url("pengaduan/delete/{$report['id_pengaduan']}"); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
+                          <?php if ($report['status'] == 1): ?>
+                            <a href="<?= site_url("pengaduan/edit/{$report['id_pengaduan']}"); ?>"
+                              class="btn btn-warning">Edit</a>
+                            <a href="<?= site_url("pengaduan/delete/{$report['id_pengaduan']}"); ?>" class="btn btn-danger"
+                              onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
+                          <?php endif; ?>
                         </div>
                       </td>
                     </tr>
@@ -74,21 +84,18 @@ $session = session()
             <div class="tab-pane fade" id="diterima" role="tabpanel" aria-labelledby="diterima-tab">
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col" class="text-center">ID</th>
-                    <th scope="col" class="text-center">Judul</th>
-                    <th scope="col" class="text-center">Tanggal</th>
+                  <tr class="text-center">
+                    <th scope="col">ID</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Tanggal</th>
                     <th scope="col" class="text-center">Isi laporan</th>
-                    <th scope="col" class="text-center">Lokasi Kejadian</th>
-                    <th scope="col" class="text-center">Gambar</th>
                     <th scope="col" class="text-center">Status</th>
-                    <th scope="col" class="text-center">Aksi cepat</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($diterima as $trma): ?>
-                    <tr>
-                      <td scope="col" class="text-center">
+                    <tr class="text-center">
+                      <td>
                         <?= $trma['id_pengaduan']; ?>
                       </td>
                       <td scope="col" class="text-center">
@@ -97,27 +104,14 @@ $session = session()
                       <td scope="col" class="text-center">
                         <?= $trma['tanggal_pengaduan']; ?>
                       </td>
-                      <td scope="col" class="text-center">
-                        <?= $trma['isi_laporan']; ?>
+                      <td>
+                        <a href="<?= site_url("/masyarakat/detail/{$trma['id_pengaduan']}"); ?>"
+                          class="btn btn-warning">Detail laporan</a>
                       </td>
                       <td scope="col" class="text-center">
-                        <?= $trma['lokasi_kejadian']; ?>
-                      </td>
-                      <td scope="col" class="text-center">
-                        <?php if ($trma['foto']): ?>
-                          <img src="<?= base_url('uploads/' . $trma['foto']); ?>" alt="Report Image" width="100">
-                        <?php else: ?>
-                          No Image
+                        <?php if ($trma['status'] == 2): ?>
+                          <button type="button" class="btn btn-secondary" disabled>Diterima</button>
                         <?php endif; ?>
-                      </td>
-                      <td scope="col" class="text-center">
-                        <?= $trma['status']; ?>
-                      </td>
-                      <td scope="col" class="text-center">
-                        <div class="text-center">
-                            <a href="<?= site_url("pengaduan/edit/{$trma['id_pengaduan']}"); ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?= site_url("pengaduan/delete/{$trma['id_pengaduan']}"); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
-                        </div>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -125,7 +119,7 @@ $session = session()
               </table>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <table class="table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th scope="col" class="text-center">ID</th>
@@ -168,8 +162,10 @@ $session = session()
                       </td>
                       <td scope="col" class="text-center">
                         <div class="text-center">
-                            <a href="<?= site_url("pengaduan/edit/{$prss['id_pengaduan']}"); ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?= site_url("pengaduan/delete/{$prss['id_pengaduan']}"); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
+                          <a href="<?= site_url("pengaduan/edit/{$prss['id_pengaduan']}"); ?>"
+                            class="btn btn-warning">Edit</a>
+                          <a href="<?= site_url("pengaduan/delete/{$prss['id_pengaduan']}"); ?>" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
                         </div>
                       </td>
                     </tr>
@@ -178,7 +174,7 @@ $session = session()
               </table>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <table class="table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th scope="col" class="text-center">ID</th>
@@ -221,8 +217,10 @@ $session = session()
                       </td>
                       <td scope="col" class="text-center">
                         <div class="text-center">
-                            <a href="<?= site_url("pengaduan/edit/{$slsi['id_pengaduan']}"); ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?= site_url("pengaduan/delete/{$slsi['id_pengaduan']}"); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
+                          <a href="<?= site_url("pengaduan/edit/{$slsi['id_pengaduan']}"); ?>"
+                            class="btn btn-warning">Edit</a>
+                          <a href="<?= site_url("pengaduan/delete/{$slsi['id_pengaduan']}"); ?>" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this report?')">Delete</a>
                         </div>
                       </td>
                     </tr>

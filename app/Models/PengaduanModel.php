@@ -13,7 +13,7 @@ class PengaduanModel extends Model
     public function laporan_anda()
     {
         return $this->select('*')
-                    ->where('status', 1 , 5)
+                    ->whereIn('status', [1, 5])
                     ->where('nik', session('nik'))
                     ->orderBy('id_pengaduan', 'desc')
                     ->findAll();
@@ -86,4 +86,19 @@ class PengaduanModel extends Model
         // Alternatively, you can use the following one-liner
         // $this->update($id, $data);
     }
+
+    // In PengaduanModel.php
+public function getPengaduanId()
+{
+    // Assuming you want the latest id_pengaduan
+    $latestPengaduan = $this->orderBy('id_pengaduan', 'DESC')->first();
+    
+    if ($latestPengaduan) {
+        return $latestPengaduan['id_pengaduan'];
+    } else {
+        // Handle the case where there are no records in the pengaduan table
+        return null;
+    }
+}
+
 }
