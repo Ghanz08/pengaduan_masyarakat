@@ -15,6 +15,7 @@ $routes->get('/masyarakat/profil', 'Masyarakat::Profile');
 $routes->get('/masyarakat/complete', 'Masyarakat::Complete');
 $routes->get('/masyarakat/detail/(:num)', 'Masyarakat::detail/$1');
 
+
 // $routes->get('/masyarakat', 'User::index');
 
 $routes->get('/login', 'Auth::login');
@@ -41,6 +42,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('pengaduan', 'Admin::pengaduan');
     $routes->get('diterima/(:num)', 'Pengaduan::diterima/$1'); // Update role to 1
     $routes->get('ditolak/(:num)', 'Pengaduan::ditolak/$1'); // Update role to 4
+    $routes->get('tanggapi', 'Tanggapan::lapor_detail');
     // Add more admin routes as needed
 });
 //

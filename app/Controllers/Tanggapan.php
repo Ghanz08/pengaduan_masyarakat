@@ -55,4 +55,12 @@ class Tanggapan extends BaseController
     return redirect()->to('/your/redirect/route');
 }
 
+    public function lapor_detail()
+    {
+        // Retrieve the report by ID and display the edit form
+        $data['pengaduan'] = $this->pengaduanModel->laporan_admin();
+        return view('Admin/Laporan_detail', $data);
+    }
+
+    
 }

@@ -60,7 +60,7 @@ $session = session()
                                                     <?= $report['tanggal_pengaduan']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= site_url("/masyarakat/detail/{$report['id_pengaduan']}"); ?>"
+                                                    <a href="<?= site_url("/admin/tanggapi{$report['id_pengaduan']}"); ?>"
                                                         class="btn btn-warning">Detail laporan</a>
                                                 </td>
                                                 <td scope="col" class="text-center">
