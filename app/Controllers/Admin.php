@@ -42,4 +42,13 @@ class Admin extends BaseController
         $data['selesai'] = $this->pengaduanModel->laporan_admin_selesai();
         return view('admin/Tabel_pengaduan', $data);
     }
+
+    public function manajemen_masyarakat()
+    {
+        return view('admin/Masyarakat');
+    }
+    public function manajemen_petugas()
+    {
+        return view('admin/Petugas');
+    }
 }

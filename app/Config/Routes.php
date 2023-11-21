@@ -43,6 +43,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('diterima/(:num)', 'Pengaduan::diterima/$1'); // Update role to 1
     $routes->get('ditolak/(:num)', 'Pengaduan::ditolak/$1'); // Update role to 4
     $routes->get('tanggapi', 'Tanggapan::lapor_detail');
+    $routes->get('manajemen_masyarakat', 'Admin::manajemen_masyarakat');
+    $routes->get('manajemen_petugas', 'Admin::manajemen_petugas');
     // Add more admin routes as needed
 });
 //
