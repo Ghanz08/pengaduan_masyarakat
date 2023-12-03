@@ -7,6 +7,10 @@ use App\Models\UserModel;
 
 class Auth extends BaseController
 {
+    protected $adminModel;
+    protected $userModel;
+    protected $validation;
+    protected $session;
     public function __construct()
     {
         //membuat user model untuk konek ke database 
@@ -91,6 +95,7 @@ class Auth extends BaseController
                 if ($admin['level'] == 'admin') {
                     $sessLogin = [
                         'isLogin' => true,
+                        'id_petugas' => $admin['id_petugas'],
                         'username' => $admin['username'],
                         'level' => $admin['level']
                     ];
@@ -99,11 +104,12 @@ class Auth extends BaseController
                 } else {
                     $sessLogin = [
                         'isLogin' => true,
+                        'id_petugas' => $admin['id_petugas'],
                         'username' => $admin['username'],
                         'level' => $admin['level']
                     ];
                     $this->session->set($sessLogin);
-                    return redirect()->to('/petugas');
+                    return redirect()->to('admin/dashboard');
                 }
             }
         } elseif ($user) {

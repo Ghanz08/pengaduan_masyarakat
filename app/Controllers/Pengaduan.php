@@ -3,12 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\PengaduanModel;
+use App\Models\TanggapanModel;
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Pengaduan extends BaseController
 {
+    protected $tanggapanModel;
+    protected $session;
+    protected $pengaduanModel;
     public function __construct()
     {
         $this->pengaduanModel = new PengaduanModel();
+        $this->tanggapanModel = new TanggapanModel();
         $this->session = session();
     }
 
@@ -16,6 +24,13 @@ class Pengaduan extends BaseController
     {
         // Display existing reports or redirect to the form
         // ...
+    }
+
+    public function template()
+    {
+        $data['pengaduan'] = $this->pengaduanModel->findAll();
+
+        return view('admin/pdf_template', $data);
     }
 
     public function create()
@@ -90,11 +105,11 @@ class Pengaduan extends BaseController
         return redirect()->to('/masyarakat');
     }
 
-    public function delete($id)
+    public function delete($id_pengaduan)
     {
         // Delete the report from the database
 
-        $report = $this->pengaduanModel->find($id);
+        $report = $this->pengaduanModel->find($id_pengaduan);
 
         // Delete the image file
         if ($report['foto'] != null) {
@@ -102,10 +117,11 @@ class Pengaduan extends BaseController
         }
 
         // Delete the record from the database
-        $this->pengaduanModel->delete($id);
+        $this->tanggapanModel->where('id_pengaduan', $id_pengaduan)->delete();
+        $this->pengaduanModel->delete($id_pengaduan);
 
         // Redirect to the index or show success message
-        return redirect()->to('/pengaduan');
+        return redirect()->to('/masyarakat/laporan_anda');
     }
 
     public function diterima($id)
@@ -155,7 +171,7 @@ class Pengaduan extends BaseController
 
         // Flash data in CodeIgniter 4
         $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
-        return redirect()->to('dashboard/pesanan_masuk');
+        return redirect()->to('admin/pengaduan');
     }
 
     public function ditolak($id)
@@ -170,4 +186,47 @@ class Pengaduan extends BaseController
         $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
         return redirect()->to('admin/pengaduan');
     }
+
+
+
+    public function generatePdf()
+    {
+        // Check if the cached data exists and is still valid
+        if (!cache('pdf_data')) {
+            // Data not in cache, fetch and cache it
+            $data['pengaduan'] = $this->pengaduanModel->findAll();
+            cache()->save('pdf_data', $data, 3600); // Cache for 1 hour
+        }
+
+        // Get the data from cache
+        $data = cache('pdf_data');
+
+        $options = new \Dompdf\Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
+
+        $dompdf = new \Dompdf\Dompdf($options);
+        // $dompdf->set_option('isRemoteEnabled', true);
+
+        // Load the view and render only the body content
+        $html = view('admin/pdf_template', $data);
+        // , ['saveData' => true]
+
+        // Load the HTML content without the header and footer
+        $dompdf->loadHtml($html);
+
+        // Set paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the PDF
+        $dompdf->render();
+
+        // Set the PDF content type
+        header('Content-Type: application/pdf');
+
+        // Output the generated PDF
+        $dompdf->stream('data pengaduan.pdf', ['Attachment' => false]);
+    }
+
+
 }

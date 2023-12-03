@@ -11,28 +11,8 @@ class TanggapanModel extends Model
     protected $allowedFields = ['id_pengaduan', 'tanggal_tanggapan', 'tanggapan', 'status', 'id_petugas'];
 
     // Your existing methods here...
-
-    public function insertAndUpdate($id_pengaduan, $tanggapan, $status, $id_petugas)
+    public function getTanggapanById($id_pengaduan)
     {
-        // Insert into tanggapan table
-        $tanggapanData = [
-            'id_pengaduan' => $id_pengaduan,
-            'tanggal_tanggapan' => date('Y-m-d H:i:s'), // Assuming current date and time
-            'tanggapan' => $tanggapan,
-            'status' => $status,
-            'id_petugas' => $id_petugas,
-        ];
-
-        $this->insert($tanggapanData);
-
-        // Update pengaduan table
-        $pengaduanModel = new PengaduanModel();
-
-        $pengaduanData = [
-            'status' => $status,
-            'id_petugas' => $id_petugas,
-        ];
-
-        $pengaduanModel->update_pengaduan($id_pengaduan, $pengaduanData);
+        return $this->where('id_pengaduan', $id_pengaduan)->findAll();
     }
 }

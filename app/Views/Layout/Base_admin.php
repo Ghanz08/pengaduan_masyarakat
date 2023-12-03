@@ -23,6 +23,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
+    <script src="https://kit.fontawesome.com/978438a1fc.js" crossorigin="anonymous"></script>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <!-- Custom CSS -->
@@ -172,7 +173,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/petugas"
                                 aria-expanded="false">
                                 <i class="me-3 fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">
@@ -181,7 +182,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/masyarakat"
                                 aria-expanded="false">
                                 <i class="me-3 fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">

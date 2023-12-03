@@ -62,7 +62,8 @@
                                 </ul>
                                 </p>
                             <?php } ?>
-                            <form class="bg-white rounded shadow-5-strong p-5" method="post" action="/auth/valid_register">
+                            <form class="bg-white rounded shadow-5-strong p-5" method="post"
+                                action="/auth/valid_register">
                                 <h3 class="text-center" style="margin-top: -6%;">Register</h3>
                                 <!-- Email input -->
                                 <div class="input-group mb-3 mt-4">
@@ -94,8 +95,6 @@
                                                 aria-describedby="basic-addon1">
                                         </div>
                                     </div>
-
-
                                 </div>
 
                                 <div class="d-grid gap-2">

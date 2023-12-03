@@ -71,9 +71,9 @@ class PengaduanModel extends Model
                     ->findAll();
     }
 
-    public function getReportById($id)
+    public function getReportById($id_pengaduan)
     {
-        return $this->find($id);
+        return $this->find($id_pengaduan);
     }
 
     public function update_pengaduan($id, $data)
@@ -100,5 +100,19 @@ public function getPengaduanId()
         return null;
     }
 }
+
+public function updatePengaduan($id_pengaduan, $data)
+    {
+        return $this->set($data)
+                    ->where('id_pengaduan', $id_pengaduan)
+                    ->update();
+    }
+
+    public function getReportsByDateRange($startDate, $endDate)
+    {
+        return $this->where('tanggal_pengaduan >=', $startDate)
+            ->where('tanggal_pengaduan <=', $endDate)
+            ->findAll();
+    }
 
 }

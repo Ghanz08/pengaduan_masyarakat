@@ -49,6 +49,27 @@ class Validation extends BaseConfig
         'confirm' => 'matches[password]'
     ];
 
+    public $petugas = [
+        'nama_petugas' => 'alpha_numeric|is_unique[petugas.nama_petugas]',
+        'username' => 'alpha_numeric|is_unique[petugas.username]',
+        'telepon' => 'numeric|is_unique[petugas.telepon]',
+        'password' => 'min_length[8]|alpha_numeric_punct',
+        'confirm' => 'matches[password]'
+    ];
+
+    public $masyarakat = [
+        'password' => 'min_length[8]|alpha_numeric_punct',
+        'confirm' => 'matches[password]'
+    ];
+
+    public $update_petugas = [
+        'nama_petugas' => 'alpha_numeric',
+        'username' => 'alpha_numeric',
+        'telepon' => 'numeric',
+        'password' => 'min_length[8]|alpha_numeric_punct',
+        'confirm' => 'matches[password]'
+    ];
+
     public $register_errors = [
         'nik' => [
             'numeric' => 'NIK hanya boleh mengandung angka',

@@ -12,7 +12,7 @@ class AdminModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["username", "password", "level"];
+    protected $allowedFields    = ["nama_petugas", "username", "telepon", "password", "level"];
 
     // Dates
     protected $useTimestamps = false;
@@ -51,5 +51,10 @@ public function getPetugasId($username)
         return null;
     }
 }
+
+public function getPetugasbyId($id_petugas)
+    {
+        return $this->where('id_petugas', $id_petugas)->findAll();
+    }
 
 }

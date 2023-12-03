@@ -3,15 +3,23 @@
 namespace App\Controllers;
 
 use App\Models\PengaduanModel;
+use App\Models\TanggapanModel;
 use App\Models\UserModel;
 
 class Masyarakat extends BaseController
 {
+    protected $pengaduanModel;
+    protected $tanggapanModel;
+    protected $userModel;
+    protected $session;
+    protected $validation;
     public function __construct()
     {
         $this->userModel = new UserModel();
         // Load the PengaduanModel
         $this->pengaduanModel = new PengaduanModel();
+        $this->tanggapanModel = new TanggapanModel();
+        $this->validation = \Config\Services::validation();
         $this->session = session();
     }
 
@@ -62,9 +70,15 @@ class Masyarakat extends BaseController
         return view('/masyarakat/Complete');
     }
 
-    public function detail($id)
+    public function detail($id_pengaduan)
     {
-        $data['pengaduan'] = $this->pengaduanModel->getReportById($id);
+        //cek apakah ada session bernama isLogin
+        if(!$this->session->has('userisLogin')){
+            return redirect()->to('/login');
+        }
+
+        $data['pengaduan'] = $this->pengaduanModel->getReportById($id_pengaduan);
+        $data['tanggapan'] = $this->tanggapanModel->getTanggapanById($id_pengaduan);
 
         return view('/masyarakat/Laporan_details', $data);
     }

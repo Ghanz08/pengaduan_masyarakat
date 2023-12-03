@@ -42,9 +42,24 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('pengaduan', 'Admin::pengaduan');
     $routes->get('diterima/(:num)', 'Pengaduan::diterima/$1'); // Update role to 1
     $routes->get('ditolak/(:num)', 'Pengaduan::ditolak/$1'); // Update role to 4
-    $routes->get('tanggapi', 'Tanggapan::lapor_detail');
-    $routes->get('manajemen_masyarakat', 'Admin::manajemen_masyarakat');
-    $routes->get('manajemen_petugas', 'Admin::manajemen_petugas');
+    $routes->get('selesai/(:num)', 'Pengaduan::selesai/$1');
+    $routes->get('tanggapi/(:num)', 'Admin::lapor_detail/$1');
+    $routes->post('tanggapan/(:num)', 'Tanggapan::tanggapan/$1');
+    $routes->get('masyarakat', 'Admin::manajemen_masyarakat');
+    $routes->get('petugas', 'Admin::manajemen_petugas');
+    $routes->get('tambah', 'Petugas::tambah');
+    $routes->post('tambahin', 'Petugas::valid_register');
+    $routes->get('edit/(:num)', 'Petugas::edit/$1');
+    $routes->post('update/(:num)', 'Petugas::update/$1');
+    $routes->get('delete/(:num)', 'Petugas::delete/$1'); // Delete a report
+    $routes->get('masyarakat', 'Admin::manajemen_masyarakat');
+    $routes->get('edit_masyarakat/(:num)', 'Manajemen::edit/$1');
+    $routes->post('update_masyarakat/(:num)', 'manajemen::update/$1');
+    $routes->get('delete_masyarakat/(:num)', 'manajemen::delete/$1');
+    $routes->get('generatePdf', 'Pengaduan::generatePdf');
+    $routes->get('template', 'Pengaduan::template');
+
+
     // Add more admin routes as needed
 });
 //

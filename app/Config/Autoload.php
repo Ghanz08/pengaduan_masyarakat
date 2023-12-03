@@ -22,6 +22,10 @@ use CodeIgniter\Config\AutoloadConfig;
  */
 class Autoload extends AutoloadConfig
 {
+    public $libraries = [
+        'session',
+    ];
+    
     /**
      * -------------------------------------------------------------------
      * Namespaces
@@ -98,5 +102,5 @@ class Autoload extends AutoloadConfig
      * @var string[]
      * @phpstan-var list<string>
      */
-    public $helpers = [];
+    public $helpers = ['session'];
 }
