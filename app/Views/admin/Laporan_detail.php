@@ -115,7 +115,7 @@ $session = session()
                                     <a href="<?= site_url("admin/ditolak/{$report['id_pengaduan']}"); ?>" class="btn btn-danger"
                                         onclick="return confirm('Apakah kamu yakin ingin menolak laporan ini?')">Tolak</a>
                                 <?php endif; ?>
-                                <?php if ($pengaduan['status'] == 2): ?>
+                                <?php if (in_array($pengaduan['status'], [2, 3]) && $pengaduan['id_pengaduan']): ?>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal<?= $pengaduan['id_pengaduan'] ?>">
                                         Tanggapi
