@@ -26,13 +26,6 @@ class Pengaduan extends BaseController
         // ...
     }
 
-    public function template()
-    {
-        $data['pengaduan'] = $this->pengaduanModel->findAll();
-
-        return view('admin/pdf_template', $data);
-    }
-
     public function create()
     {
         // Display the form to create a new report
@@ -185,47 +178,6 @@ class Pengaduan extends BaseController
         // Flash data in CodeIgniter 4
         $this->session->setFlashdata('pesan', 'Pesanan Berhasil Di Proses !!!');
         return redirect()->to('admin/pengaduan');
-    }
-
-
-
-    public function generatePdf()
-    {
-        // Check if the cached data exists and is still valid
-        if (!cache('pdf_data')) {
-            // Data not in cache, fetch and cache it
-            $data['pengaduan'] = $this->pengaduanModel->findAll();
-            cache()->save('pdf_data', $data, 3600); // Cache for 1 hour
-        }
-
-        // Get the data from cache
-        $data = cache('pdf_data');
-
-        $options = new \Dompdf\Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isPhpEnabled', true);
-
-        $dompdf = new \Dompdf\Dompdf($options);
-        // $dompdf->set_option('isRemoteEnabled', true);
-
-        // Load the view and render only the body content
-        $html = view('admin/pdf_template', $data);
-        // , ['saveData' => true]
-
-        // Load the HTML content without the header and footer
-        $dompdf->loadHtml($html);
-
-        // Set paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
-
-        // Render the PDF
-        $dompdf->render();
-
-        // Set the PDF content type
-        header('Content-Type: application/pdf');
-
-        // Output the generated PDF
-        $dompdf->stream('data pengaduan.pdf', ['Attachment' => false]);
     }
 
 

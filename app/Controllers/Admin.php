@@ -99,4 +99,15 @@ class Admin extends BaseController
         // Load the admin Laporan_detail view with data
         return view('Admin/Laporan_detail', $data);
     }
+
+    public function generate()
+    {
+        if (!$this->session->has('isLogin')) {
+            // Redirect to the login page
+            return redirect()->to('/login');
+        }
+
+        // Load the admin Laporan_detail view with data
+        return view('admin/generate');
+    }
 }

@@ -16,8 +16,6 @@ $session = session()
             <article>
                 <div class="card">
                     <div class="card-header">
-                        <input type="button" value="Print PDF"
-                            onclick="window.open('<?php echo site_url('admin/generatePdf') ?>', 'blank')" />
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">

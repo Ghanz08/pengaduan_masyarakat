@@ -56,9 +56,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('edit_masyarakat/(:num)', 'Manajemen::edit/$1');
     $routes->post('update_masyarakat/(:num)', 'manajemen::update/$1');
     $routes->get('delete_masyarakat/(:num)', 'manajemen::delete/$1');
-    $routes->get('generatePdf', 'Pengaduan::generatePdf');
-    $routes->get('template', 'Pengaduan::template');
-
+    $routes->get('generate', 'Admin::generate');
+    $routes->post('generate', 'Generatepdf::generate');
 
     // Add more admin routes as needed
 });

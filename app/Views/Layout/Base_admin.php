@@ -190,6 +190,15 @@
                                 </span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/generate"
+                                aria-expanded="false">
+                                <i class="me-3 fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">
+                                    Generate PDF
+                                </span>
+                            </a>
+                        </li>
 
                     </ul>
 
