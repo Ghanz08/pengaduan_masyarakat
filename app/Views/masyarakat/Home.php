@@ -22,8 +22,8 @@
     </div>
   </div>
   <div>
-    <div class="container">
-      <div class="row">
+    <div class="container mb-5">
+      <div class="row" style="margin-left: 60px;">
         <div class="col">
           <a style="text-decoration: none;" href="/masyarakat/pengaduan">
             <div class="card" style="width: 18rem;">
@@ -60,31 +60,16 @@
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <p class="text-center text-danger">
-                    <i class="bi bi-pen" style="font-size: 100px;"></i>
+                  <i class="bi bi-question-lg" style="font-size: 100px;"></i>
                   </p>
-                  <h5 class="card-title text-center">Tulis laporan</h5>
-                  <p class="card-text text-center">Tulis keluhan anda dengan jelas</p>
+                  <h5 class="card-title text-center">tentang kami</h5>
+                  <p class="card-text text-center">Ketahui apapun tentang kami</p>
                 </div>
               </div>
             </div>
           </a>
         </div>
-        <div class="col">
-          <a style="text-decoration: none;" href="">
-            <div class="card" style="width: 18rem;">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <p class="text-center text-danger">
-                    <i class="bi bi-pen" style="font-size: 100px;"></i>
-                  </p>
-                  <h5 class="card-title text-center">Tulis laporan</h5>
-                  <p class="card-text text-center">Tulis keluhan anda dengan jelas</p>
-                </div>
-              </div>
-            </div>
-          </a>
         </div>
-      </div>
     </div>
   </div>
   </div>

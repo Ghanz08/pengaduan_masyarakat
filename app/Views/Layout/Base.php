@@ -21,7 +21,8 @@ $session = session()
   <link rel="stylesheet" href="frontend/css/style.css">
   <nav class="navbar navbar-expand-sm navbar-danger bg-danger">
     <div class="container-fluid">
-      <a class="navbar-brand link-light" href="javascript:void(0)">Logo</a>
+      <b><h1 class="navbar-brand link-light" href="javascript:void(0)">LaporSaja!</h1></b>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
